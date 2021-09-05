@@ -24,6 +24,9 @@ public class NumberField {
 	
 	public void setText(String text) {
 		this.label.setText(text);
+		if(Main.nextNum) {
+			//Main.firstNum
+		}
 	}
 	
 	public JLabel getLabel() {

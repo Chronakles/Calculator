@@ -17,7 +17,7 @@ public class Button implements ActionListener {
 	private int width = 82;
 	private int height = 80;
 	private Color col;
-	private double number;
+	private String number;
 	
 	Button(String name, int x, int y, Color col, ArrayList<JButton> myButtons){
 		
@@ -28,8 +28,7 @@ public class Button implements ActionListener {
 		button.setFocusable(false);
 		button.setBackground(col);
 		button.addActionListener(this);
-		
-		this.number = Double.parseDouble(name);
+		this.number = name;
 		
 		myButtons.add(button);
 	}
@@ -38,19 +37,12 @@ public class Button implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//String text = Main.result.getText();
-		Main.result.setText(Double.toString(number));
-		/*if(Main.firstNum == 0) {
-			Main.firstNum = Integer.parseInt(button.getText().toString());
+		if(Main.result.getText().equals("0") || Main.nextNum) {
+			Main.result.setText(this.number);
+			Main.nextNum = false;
 		}else {
-			Main.secondNum = Integer.parseInt(button.getText().toString());
+			Main.result.setText(Main.result.getText() + this.number);
 		}
-		if(Main.nextNum == false) {
-			Main.result.setText(button.getText().toString());
-			Main.nextNum = true;
-		}else {
-			String help = Main.result.getText() + button.getText().toString();
-			Main.result.setText(help);
-		}*/
 		
 	};
 	
